@@ -7,3 +7,35 @@ The Package Manager for Windows
 https://chocolatey.org/  
 
 ~~~
+chocolatey base packages
+~~~
+sysinternals 
+osquery 
+ChocolateyGUI 
+packer
+
+googlechrome 
+microsoft-edge 
+7zip
+
+ant 
+bazel 
+cmake 
+git 
+gradle 
+maven 
+sbt 
+tortoisesvn
+
+apache-httpd 
+nginx 
+php 
+postgresql 
+jq 
+julia
+
+kubernetes-cli 
+kubernetes-helm 
+Minikube 
+docker-compose 
+~~~
