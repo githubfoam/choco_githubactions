@@ -34,7 +34,9 @@ jobs:
     - name: "Choco packages - pwsh script" 
       run: .\scripts\Choco_Packages.ps1
       shell: pwsh             
-
+    - name: "Sysinternals - pwsh script" 
+      run: logonsessions -p 
+      shell: pwsh  
 
   windows-2016-pwsh-choco:
     name: "Microsoft Windows Server 2016 Datacenter choco packages"
