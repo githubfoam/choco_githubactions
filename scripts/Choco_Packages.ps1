@@ -1,7 +1,3 @@
-# Silent Install Firefox 
-## Download URL: https://www.mozilla.org/en-US/firefox/all/
-### When a new version of FireFox comes out, just change the firefox version or url to the new value
-
 #--------------------------------------------------------------------------------------------------------
 # https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/set-psdebug?view=powershell-7.1
 Set-PSDebug -Trace 2 #turns script debugging features on and off, sets the trace level
