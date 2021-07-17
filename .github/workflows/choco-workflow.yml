@@ -35,7 +35,7 @@ jobs:
       run: .\scripts\Choco_Packages.ps1
       shell: pwsh             
     - name: "Sysinternals - pwsh script" 
-      run: logonsessions -p 
+      run: sysmon -accepteula -i 
       shell: pwsh  
 
   windows-2016-pwsh-choco:
