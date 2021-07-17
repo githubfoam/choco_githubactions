@@ -34,7 +34,7 @@ jobs:
     - name: "Choco packages - pwsh script" 
       run: .\scripts\Choco_Packages.ps1
       shell: pwsh             
-    - name: "Sysinternals - pwsh script" 
+    - name: "sysmon - pwsh" 
       run: sysmon -accepteula -i 
       shell: pwsh  
 
