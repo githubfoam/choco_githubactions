@@ -38,9 +38,9 @@ Write-Host "####################################################################
 # see the security on the HKLM\Software key
 # accesschk -k hklm\software
 # see all files under \Users\Mark on Vista that have an explicit integrity level
-accesschk -e -s c:\users\$env:UserName
+# accesschk -e -s c:\users\$env:UserName
 # see all global objects that Everyone can modify
-# accesschk -wuo everyone \basednamedobjects
+accesschk -wuo everyone \basednamedobjects
 
 Write-Host "####################################################################"
 Write-Host "################### contig #########################################"
