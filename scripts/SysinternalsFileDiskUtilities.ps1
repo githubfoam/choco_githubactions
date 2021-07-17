@@ -5,14 +5,23 @@ Set-PSDebug -Trace 2 #turns script debugging features on and off, sets the trace
 $VerbosePreference = "continue"
 Write-Output $VerbosePreference
 #--------------------------------------------------------------------------------------------------------
+
+Write-Host "###################### whoami ######################################"
+
+Write-Host "current user:"
+Write-Host $(whoami)
+
 whoami /all
+Write-Host "################### install choco sysinternals ################################################"
 
 # https://docs.chocolatey.org/en-us/choco/commands/install
 choco install --yes --no-progress --virus-check sysinternals 
 
 # https://docs.microsoft.com/en-us/sysinternals/downloads/file-and-disk-utilities
-# https://docs.microsoft.com/en-us/sysinternals/downloads/accesschk
 
+Write-Host "################### accesschk ################################################"
+
+# https://docs.microsoft.com/en-us/sysinternals/downloads/accesschk
 # reports the accesses that the Power Users account has to files and directories in \Windows\System32
 # accesschk "power users" c:\windows\system32
 # shows which Windows services members of the Users group have write access to
@@ -23,6 +32,9 @@ accesschk -kns $(whoami) hklm\software
 # accesschk -k hklm\software
 # see all global objects that Everyone can modify
 # accesschk -wuo everyone \basednamedobjects
+
+Write-Host "################### contig ################################################"
+
 
 # # https://docs.microsoft.com/en-us/sysinternals/downloads/contig
 # # https://en.wikipedia.org/wiki/Contig_(defragmentation_utility)
