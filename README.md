@@ -39,3 +39,8 @@ kubernetes-helm
 Minikube 
 docker-compose 
 ~~~
+~~~
+https://community.chocolatey.org/packages/sysinternals
+Sysinternals Utilities Index
+https://docs.microsoft.com/en-us/sysinternals/downloads/
+~~~
