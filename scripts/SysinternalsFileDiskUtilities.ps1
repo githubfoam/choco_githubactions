@@ -16,9 +16,9 @@ choco install --yes --no-progress --virus-check sysinternals
 # reports the accesses that the Power Users account has to files and directories in \Windows\System32
 # accesschk "power users" c:\windows\system32
 # shows which Windows services members of the Users group have write access to
-accesschk users -cw *
+# accesschk users -cw *
 #see what Registry keys under HKLM\CurrentUser a specific account has no access to
-# accesschk -kns austin\mruss hklm\software 
+accesschk -kns austin\mruss hklm\software 
 #see the security on the HKLM\Software key
 # accesschk -k hklm\software
 # see all global objects that Everyone can modify
