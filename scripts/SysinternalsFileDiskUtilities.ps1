@@ -12,12 +12,16 @@ choco install --yes --no-progress --virus-check sysinternals
 
 # https://docs.microsoft.com/en-us/sysinternals/downloads/file-and-disk-utilities
 # https://docs.microsoft.com/en-us/sysinternals/downloads/accesschk
-accesschk "power users" c:\windows\system32
-# #see what Registry keys under HKLM\CurrentUser a specific account has no access to
+
+# reports the accesses that the Power Users account has to files and directories in \Windows\System32
+# accesschk "power users" c:\windows\system32
+# shows which Windows services members of the Users group have write access to
+accesschk users -cw *
+#see what Registry keys under HKLM\CurrentUser a specific account has no access to
 # accesschk -kns austin\mruss hklm\software 
-# #see the security on the HKLM\Software key
+#see the security on the HKLM\Software key
 # accesschk -k hklm\software
-# # see all global objects that Everyone can modify
+# see all global objects that Everyone can modify
 # accesschk -wuo everyone \basednamedobjects
 
 # # https://docs.microsoft.com/en-us/sysinternals/downloads/contig
