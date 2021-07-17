@@ -51,7 +51,7 @@ Write-Host "####################################################################
 # # https://docs.microsoft.com/en-us/sysinternals/downloads/contig
 # # https://en.wikipedia.org/wiki/Contig_(defragmentation_utility)
 # # the wildcard symbol * allows whole directories and drives to be defragmented
-# contig -s -accepteula C:\* 
+contig -s -accepteula C:\* 
 # contig -v -s C:\*
 # # for /R /D %a in (*.*) do start /b contig -q "%a" > nul
 # # When the filesystem is NTFS, contig can also analyse and defragment
