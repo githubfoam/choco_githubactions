@@ -40,11 +40,12 @@ Write-Host "####################################################################
 # see all files under \Users\Mark on Vista that have an explicit integrity level
 # accesschk -e -s c:\users\$env:UserName
 # see all global objects that Everyone can modify
-accesschk -wuo everyone \basednamedobjects
+# accesschk -wuo everyone \basednamedobjects
+accesschk -wuo $env:UserName \basednamedobjects
 
-Write-Host "####################################################################"
-Write-Host "################### contig #########################################"
-Write-Host "####################################################################"
+Write-Host "####################################################################" -ForegroundColor Red -BackgroundColor Yellow
+Write-Host "################### contig #########################################" -ForegroundColor Red -BackgroundColor Yellow
+Write-Host "####################################################################" -ForegroundColor Red -BackgroundColor Yellow
 
 # # https://docs.microsoft.com/en-us/sysinternals/downloads/contig
 # # https://en.wikipedia.org/wiki/Contig_(defragmentation_utility)
