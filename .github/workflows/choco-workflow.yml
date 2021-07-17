@@ -31,9 +31,9 @@ jobs:
     #   run: net start                       
     # - name: "query unusual services"
     #   run: sc query        
-    # - name: "Choco packages - pwsh script" 
-    #   run: .\scripts\Choco_Packages.ps1
-    #   shell: pwsh             
+    - name: "Choco packages - pwsh script" 
+      run: .\scripts\Choco_Packages.ps1
+      shell: pwsh             
     - name: "Sysinternals File and Disk Utilities" 
       run: .\scripts\SysinternalsFileDiskUtilities.ps1
       shell: pwsh  

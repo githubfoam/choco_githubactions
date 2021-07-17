@@ -7,7 +7,7 @@ Write-Output $VerbosePreference
 #--------------------------------------------------------------------------------------------------------
 
 # https://docs.chocolatey.org/en-us/choco/commands/install
-choco install --yes --no-progress --virus-check sysinternals osquery ChocolateyGUI packer
+choco install --yes --no-progress --virus-check sysinternals psscriptanalyzer osquery ChocolateyGUI packer
 
 choco install --yes --no-progress --virus-check googlechrome microsoft-edge 7zip
 
