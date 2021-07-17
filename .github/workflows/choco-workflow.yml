@@ -34,8 +34,8 @@ jobs:
     - name: "Choco packages - pwsh script" 
       run: .\scripts\Choco_Packages.ps1
       shell: pwsh             
-    - name: "sysmon - pwsh" 
-      run: sysmon -accepteula -i 
+    - name: "Sysinternals File and Disk Utilities" 
+      run: .\scripts\SysinternalsFileDiskUtilities.ps1
       shell: pwsh  
 
   windows-2016-pwsh-choco:
