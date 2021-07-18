@@ -10,6 +10,7 @@ https://chocolatey.org/
 chocolatey base packages
 ~~~
 sysinternals 
+psscriptanalyzer
 osquery 
 ChocolateyGUI 
 packer
