@@ -44,7 +44,7 @@ jobs:
       run: |
           md Program-Files
           junction c:\Program-Files "c:\Program Files"
-          junction -s c:\
+          # junction -s c:\
           junction -d c:\Program-Files
       shell: pwsh  
     # - name: "Sysinternals File and Disk Utilities findlinks" 
