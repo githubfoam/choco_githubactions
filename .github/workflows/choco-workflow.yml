@@ -40,19 +40,19 @@ jobs:
     # - name: "Sysinternals File and Disk Utilities contig" 
     #   run: .\scripts\SysinternalsFileDiskUtilities-contig.ps1
     #   shell: pwsh  
-    - name: "Sysinternals File and Disk Utilities junction" 
-      run: |
-          md Program-Files
-          junction c:\Program-Files "c:\Program Files"
-          # junction -s c:\
-          junction -d c:\Program-Files
-      shell: pwsh  
-    # - name: "Sysinternals File and Disk Utilities findlinks" 
+    # - name: "Sysinternals File and Disk Utilities junction" 
     #   run: |
-    #       New-Item -Path 'C:\text.txt' -ItemType File
-    #       $text = 'Hello World!' | Out-File $text -FilePath C:\text.txt
-    #       findlinks C:\text.txt
-    #   shell: pwsh    
+    #       md Program-Files
+    #       junction c:\Program-Files "c:\Program Files"
+    #       # junction -s c:\
+    #       junction -d c:\Program-Files
+    #   shell: pwsh  
+    - name: "Sysinternals File and Disk Utilities findlinks" 
+      run: |
+          New-Item -Path 'C:\text.txt' -ItemType File
+          $text = 'Hello World!' | Out-File $text -FilePath C:\text.txt
+          findlinks C:\text.txt
+      shell: pwsh    
     # - name: "Sysinternals File and Disk Utilities movefile" 
     #   run: |
     #       New-Item -Path 'C:\test.exe' -ItemType File
