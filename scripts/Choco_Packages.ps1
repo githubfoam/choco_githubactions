@@ -17,4 +17,6 @@ choco install --yes --no-progress --virus-check apache-httpd nginx php postgresq
 
 choco install --yes --no-progress --virus-check kubernetes-cli kubernetes-helm Minikube docker-compose 
 
+choco install --yes --no-progress --virus-check packer 
+
 choco list --local-only
