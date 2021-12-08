@@ -36,16 +36,7 @@ jobs:
     - name: "Choco packages - pwsh script" 
       run: .\scripts\Choco_Packages.ps1
       shell: pwsh             
-    - name: "Sysinternals File and Disk Utilities accesschk" 
-      run: .\scripts\SysinternalsFileDiskUtilities-accesschk.ps1
-      shell: pwsh  
-    - name: "Sysinternals File and Disk Utilities junction" 
-      run: |
-          md Program-Files
-          junction c:\Program-Files "c:\Program Files"
-          # junction -s c:\
-          junction -d c:\Program-Files
-      shell: pwsh 
+ 
 
   windows-latest-pwsh-choco:
     name: "2019 Datacenter windows-latest   choco packages"  
@@ -72,16 +63,7 @@ jobs:
     - name: "Choco packages - pwsh script" 
       run: .\scripts\Choco_Packages.ps1
       shell: pwsh             
-    - name: "Sysinternals File and Disk Utilities accesschk" 
-      run: .\scripts\SysinternalsFileDiskUtilities-accesschk.ps1
-      shell: pwsh  
-    - name: "Sysinternals File and Disk Utilities junction" 
-      run: |
-          md Program-Files
-          junction c:\Program-Files "c:\Program Files"
-          # junction -s c:\
-          junction -d c:\Program-Files
-      shell: pwsh  
+
          
 
   windows-2016-pwsh-choco:
@@ -109,14 +91,5 @@ jobs:
     - name: "Choco packages - pwsh script" 
       run: .\scripts\Choco_Packages.ps1
       shell: pwsh             
-    - name: "Sysinternals File and Disk Utilities accesschk" 
-      run: .\scripts\SysinternalsFileDiskUtilities-accesschk.ps1
-      shell: pwsh  
-    - name: "Sysinternals File and Disk Utilities junction" 
-      run: |
-          md Program-Files
-          junction c:\Program-Files "c:\Program Files"
-          # junction -s c:\
-          junction -d c:\Program-Files
-      shell: pwsh      
+   
 

@@ -17,43 +17,62 @@ choco install --yes --no-progress --virus-check sysinternals `
     packer terraform vagrant virtualbox wireshark
 
 Write-Host "####################################################################"
+Write-Host "###################      net tools            #####################"
+Write-Host "####################################################################"
+choco install --yes --no-progress --virus-check wireshark network-miner
+
+Write-Host "####################################################################"
+Write-Host "###################      security              #####################"
+Write-Host "####################################################################"
+choco install --yes --no-progress --virus-check zap burp-suite-free-edition
+
+Write-Host "####################################################################"
 Write-Host "###################      browsers              #####################"
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check googlechrome firefox `
-    microsoft-edge safari opera
+    microsoft-edge safari opera tor-browser
     
-# Write-Host "####################################################################"
-# Write-Host "###################      tools                 #####################"
-# Write-Host "####################################################################"
+Write-Host "####################################################################"
+Write-Host "###################      tools                 #####################"
+Write-Host "####################################################################"
 
-# choco install --yes --no-progress --virus-check 7zip etcher keepass |
-    # foxitreader putty rufus vlc winscp mremoteng treesizefree
+choco install --yes --no-progress --virus-check 7zip etcher keepass `
+    foxitreader putty rufus vlc winscp mremoteng treesizefree screamer
 
-# Write-Host "####################################################################"
-# Write-Host "###################      editors               #####################"
-# Write-Host "####################################################################"
+Write-Host "####################################################################"
+Write-Host "###################      editors               #####################"
+Write-Host "####################################################################"
 
-# choco install --yes --no-progress --virus-check pycharm vscode
+choco install --yes --no-progress --virus-check foxitreader projectlibre `
+    notepadplusplus projectlibre
 
-# Write-Host "####################################################################"
-# Write-Host "###################      build tools           #####################"
-# Write-Host "####################################################################"
+Write-Host "####################################################################"
+Write-Host "###################      development           #####################"
+Write-Host "####################################################################"
 
-# choco install --yes --no-progress --virus-check ant bazel cmake git gradle |
-#     maven sbt tortoisesvn postman
+choco install --yes --no-progress --virus-check pycharm vscode
 
-# Write-Host "####################################################################"
-# Write-Host "###################      servers               #####################"
-# Write-Host "####################################################################"
+Write-Host "####################################################################"
+Write-Host "###################      build tools           #####################"
+Write-Host "####################################################################"
 
-# choco install --yes --no-progress --virus-check apache-httpd nginx php postgresql jq julia 
+choco install --yes --no-progress --virus-check ant bazel cmake git gradle `
+    maven sbt tortoisesvn postman
 
-# Write-Host "####################################################################"
-# Write-Host "###################      cloud               #####################"
-# Write-Host "####################################################################"
+Write-Host "####################################################################"
+Write-Host "###################      servers               #####################"
+Write-Host "####################################################################"
 
-# choco install --yes --no-progress --virus-check kubernetes-cli kubernetes-helm Minikube docker-compose 
+choco install --yes --no-progress --virus-check apache-httpd nginx php `
+    postgresql jq julia 
+
+Write-Host "####################################################################"
+Write-Host "###################      cloud               #####################"
+Write-Host "####################################################################"
+
+choco install --yes --no-progress --virus-check kubernetes-cli kubernetes-helm `
+ Minikube docker-compose docker-desktop
 
 
 choco list --local-only
