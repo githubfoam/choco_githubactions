@@ -14,7 +14,7 @@ Write-Host "###################      system tools          #####################
 Write-Host "####################################################################"
 choco install --yes --no-progress --virus-check sysinternals `
     psscriptanalyzer osquery ChocolateyGUI packer `
-    terraform vagrant virtualbox vmware-powercli-psmodule
+    terraform vagrant virtualbox  vmware-powercli-psmodule
 
 Write-Host "####################################################################"
 Write-Host "###################      net tools            #####################"
@@ -54,27 +54,5 @@ Write-Host "####################################################################
 
 choco install --yes --no-progress --virus-check pycharm vscode tortoisegit `
     postman
-
-Write-Host "####################################################################"
-Write-Host "###################      build tools           #####################"
-Write-Host "####################################################################"
-
-choco install --yes --no-progress --virus-check ant bazel cmake git gradle `
-    maven sbt 
-
-Write-Host "####################################################################"
-Write-Host "###################      servers               #####################"
-Write-Host "####################################################################"
-
-choco install --yes --no-progress --virus-check apache-httpd nginx php `
-    postgresql jq julia 
-
-Write-Host "####################################################################"
-Write-Host "###################      cloud               #####################"
-Write-Host "####################################################################"
-
-choco install --yes --no-progress --virus-check kubernetes-cli kubernetes-helm `
- Minikube docker-compose docker-desktop
-
 
 choco list --local-only
