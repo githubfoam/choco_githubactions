@@ -14,13 +14,13 @@ Write-Host "###################      system tools          #####################
 Write-Host "####################################################################"
 choco install --yes --no-progress --virus-check sysinternals `
     psscriptanalyzer osquery ChocolateyGUI packer `
-    packer terraform vagrant virtualbox 
+    packer terraform vagrant virtualbox wireshark
 
-# Write-Host "####################################################################"
-# Write-Host "###################      browsers              #####################"
-# Write-Host "####################################################################"
+Write-Host "####################################################################"
+Write-Host "###################      browsers              #####################"
+Write-Host "####################################################################"
 
-choco install --yes --no-progress --virus-check googlechrome firefox |
+choco install --yes --no-progress --virus-check googlechrome firefox `
     microsoft-edge safari opera
     
 # Write-Host "####################################################################"
@@ -28,7 +28,13 @@ choco install --yes --no-progress --virus-check googlechrome firefox |
 # Write-Host "####################################################################"
 
 # choco install --yes --no-progress --virus-check 7zip etcher keepass |
-    # foxitreader putty
+    # foxitreader putty rufus vlc winscp mremoteng treesizefree
+
+# Write-Host "####################################################################"
+# Write-Host "###################      editors               #####################"
+# Write-Host "####################################################################"
+
+# choco install --yes --no-progress --virus-check pycharm vscode
 
 # Write-Host "####################################################################"
 # Write-Host "###################      build tools           #####################"
