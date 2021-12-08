@@ -14,10 +14,16 @@ psscriptanalyzer
 osquery 
 ChocolateyGUI 
 packer
+terraform
+vagrant
+virtualbox
 
-googlechrome 
+chrome  
 microsoft-edge 
 7zip
+vlc 
+keepass 
+putty 
 
 ant 
 bazel 
@@ -27,6 +33,8 @@ gradle
 maven 
 sbt 
 tortoisesvn
+SublimeText3 
+
 
 apache-httpd 
 nginx 
