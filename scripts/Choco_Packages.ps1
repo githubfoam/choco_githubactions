@@ -9,19 +9,44 @@ Write-Output $VerbosePreference
 # https://docs.chocolatey.org/en-us/choco/commands/install
 choco upgrade chocolatey #Installing choco updates
 
-choco install --yes --no-progress --virus-check sysinternals \
-    psscriptanalyzer osquery ChocolateyGUI packer keepass 
+Write-Host "####################################################################"
+Write-Host "###################      system tools          #####################"
+Write-Host "####################################################################"
+choco install --yes --no-progress --virus-check sysinternals |
+    psscriptanalyzer osquery ChocolateyGUI packer |
+    packer terraform vagrant virtualbox 
 
-choco install --yes --no-progress --virus-check googlechrome microsoft-edge 7zip
+# Write-Host "####################################################################"
+# Write-Host "###################      browsers              #####################"
+# Write-Host "####################################################################"
 
-choco install --yes --no-progress --virus-check ant bazel cmake git gradle maven sbt tortoisesvn
+# choco install --yes --no-progress --virus-check googlechrome firefox microsoft-edge \
+#     7zip
+    
+# Write-Host "####################################################################"
+# Write-Host "###################      tools                 #####################"
+# Write-Host "####################################################################"
 
-choco install --yes --no-progress --virus-check apache-httpd nginx php postgresql jq julia 
+# choco install --yes --no-progress --virus-check 7zip etcher keepass foxitreader
 
-choco install --yes --no-progress --virus-check kubernetes-cli kubernetes-helm Minikube docker-compose 
+# Write-Host "####################################################################"
+# Write-Host "###################      build tools           #####################"
+# Write-Host "####################################################################"
 
-choco install --yes --no-progress --virus-check packer terraform vagrant virtualbox
+# choco install --yes --no-progress --virus-check ant bazel cmake git gradle |
+#     maven sbt tortoisesvn
 
-choco upgrade vagrant #Upgrade software with choco
+# Write-Host "####################################################################"
+# Write-Host "###################      servers               #####################"
+# Write-Host "####################################################################"
+
+# choco install --yes --no-progress --virus-check apache-httpd nginx php postgresql jq julia 
+
+# Write-Host "####################################################################"
+# Write-Host "###################      cloud               #####################"
+# Write-Host "####################################################################"
+
+# choco install --yes --no-progress --virus-check kubernetes-cli kubernetes-helm Minikube docker-compose 
+
 
 choco list --local-only
