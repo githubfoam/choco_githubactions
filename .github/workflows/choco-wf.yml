@@ -33,7 +33,7 @@ jobs:
       run: net start                       
     - name: "query unusual services"
       run: sc query        
-    - name: "Choco packages - pwsh script" 
+    - name: "Install Chocolatey - pwsh script" 
       run: .\scripts\Install_chocolatey.ps1
       shell: pwsh             
     - name: "Sysinternals File and Disk Utilities accesschk" 
