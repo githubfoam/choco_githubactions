@@ -1,5 +1,5 @@
 
-name: "choco packages CI workflow"
+name: "deploy chocolatey from github  CI workflow"
 
 on:
   push:

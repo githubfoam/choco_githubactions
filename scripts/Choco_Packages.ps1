@@ -9,7 +9,8 @@ Write-Output $VerbosePreference
 # https://docs.chocolatey.org/en-us/choco/commands/install
 choco upgrade chocolatey #Installing choco updates
 
-choco install --yes --no-progress --virus-check sysinternals psscriptanalyzer osquery ChocolateyGUI packer keepass 
+choco install --yes --no-progress --virus-check sysinternals \
+    psscriptanalyzer osquery ChocolateyGUI packer keepass 
 
 choco install --yes --no-progress --virus-check googlechrome microsoft-edge 7zip
 
