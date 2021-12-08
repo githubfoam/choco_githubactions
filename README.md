@@ -3,6 +3,9 @@
 
 [![choco packages CI workflow](https://github.com/githubfoam/choco_githubactions/actions/workflows/choco-packages-wf.yml/badge.svg?branch=main)](https://github.com/githubfoam/choco_githubactions/actions/workflows/choco-packages-wf.yml)
 
+[![deploy chocolatey from github  CI workflow](https://github.com/githubfoam/choco_githubactions/actions/workflows/deploy-choco-from-github-wf.yml/badge.svg?branch=main)](https://github.com/githubfoam/choco_githubactions/actions/workflows/deploy-choco-from-github-wf.yml)
+
+[![desktop choco packages CI workflow](https://github.com/githubfoam/choco_githubactions/actions/workflows/desktop-choco-packages-wf.yml/badge.svg?branch=main)](https://github.com/githubfoam/choco_githubactions/actions/workflows/desktop-choco-packages-wf.yml) 
 ~~~
 
 

@@ -32,7 +32,7 @@ Write-Host "###################      browsers              #####################
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check googlechrome firefox `
-    microsoft-edge safari opera tor-browser
+    safari opera tor-browser
     
 Write-Host "####################################################################"
 Write-Host "###################      tools                 #####################"
