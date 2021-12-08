@@ -12,29 +12,30 @@ choco upgrade chocolatey #Installing choco updates
 Write-Host "####################################################################"
 Write-Host "###################      system tools          #####################"
 Write-Host "####################################################################"
-choco install --yes --no-progress --virus-check sysinternals |
-    psscriptanalyzer osquery ChocolateyGUI packer |
+choco install --yes --no-progress --virus-check sysinternals `
+    psscriptanalyzer osquery ChocolateyGUI packer `
     packer terraform vagrant virtualbox 
 
 # Write-Host "####################################################################"
 # Write-Host "###################      browsers              #####################"
 # Write-Host "####################################################################"
 
-# choco install --yes --no-progress --virus-check googlechrome firefox microsoft-edge \
-#     7zip
+choco install --yes --no-progress --virus-check googlechrome firefox |
+    microsoft-edge safari opera
     
 # Write-Host "####################################################################"
 # Write-Host "###################      tools                 #####################"
 # Write-Host "####################################################################"
 
-# choco install --yes --no-progress --virus-check 7zip etcher keepass foxitreader
+# choco install --yes --no-progress --virus-check 7zip etcher keepass |
+    # foxitreader putty
 
 # Write-Host "####################################################################"
 # Write-Host "###################      build tools           #####################"
 # Write-Host "####################################################################"
 
 # choco install --yes --no-progress --virus-check ant bazel cmake git gradle |
-#     maven sbt tortoisesvn
+#     maven sbt tortoisesvn postman
 
 # Write-Host "####################################################################"
 # Write-Host "###################      servers               #####################"
