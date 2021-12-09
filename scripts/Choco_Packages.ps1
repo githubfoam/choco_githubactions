@@ -51,7 +51,7 @@ Write-Host "####################################################################
 Write-Host "###################      development           #####################"
 Write-Host "####################################################################"
 
-choco install --yes --no-progress --virus-check pycharm vscode tortoisegit `
+choco install --yes --no-progress --virus-check vscode tortoisegit `
     postman
 
 Write-Host "####################################################################"
