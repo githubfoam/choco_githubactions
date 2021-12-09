@@ -34,7 +34,7 @@ jobs:
     - name: "query unusual services"
       run: sc query        
     - name: "Choco packages - pwsh script" 
-      run: .\scripts\Choco_Packages_Desktop.ps1
+      run: .\scripts\Choco_Packages_Desktop_windows10.ps1
       shell: pwsh             
 
       
