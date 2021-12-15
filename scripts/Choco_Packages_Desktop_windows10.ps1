@@ -14,7 +14,7 @@ Write-Host "###################      system tools          #####################
 Write-Host "####################################################################"
 choco install --yes --no-progress --virus-check sysinternals `
     psscriptanalyzer osquery ChocolateyGUI packer `
-    terraform vagrant virtualbox  vmware-powercli-psmodule
+    terraform vagrant virtualbox  vmware-workstation-player vmware-powercli-psmodule
 
 Write-Host "####################################################################"
 Write-Host "###################      net tools            #####################"
@@ -38,13 +38,13 @@ Write-Host "###################      tools                 #####################
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check 7zip etcher  `
-    rufus treesizefree skype 
+    rufus treesizefree skype  virtualclonedrive
 
 Write-Host "####################################################################"
 Write-Host "###################      remote conn           #####################"
 Write-Host "####################################################################"
 choco install --yes --no-progress --virus-check putty winscp `
-     mremoteng filezilla utorrent    
+     mremoteng filezilla deluge openvpn   
 
 Write-Host "####################################################################"
 Write-Host "###################      visual video audio    #####################"
