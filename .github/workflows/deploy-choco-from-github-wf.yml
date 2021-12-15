@@ -43,8 +43,6 @@ jobs:
     - name: "Install chocolatey packages from github - pwsh script" 
       run: |
         iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/githubfoam/choco_githubactions/main/scripts/Choco_Packages_Desktop_windows10.ps1'))
-        choco
-        choco upgrade chocolatey
         choco list --local-only
       shell: pwsh 
 

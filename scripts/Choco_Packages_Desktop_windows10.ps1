@@ -37,21 +37,46 @@ Write-Host "####################################################################
 Write-Host "###################      tools                 #####################"
 Write-Host "####################################################################"
 
-choco install --yes --no-progress --virus-check 7zip etcher keepass `
-    foxitreader putty rufus vlc winscp mremoteng treesizefree screamer
+choco install --yes --no-progress --virus-check 7zip etcher  `
+    rufus treesizefree skype 
+
+Write-Host "####################################################################"
+Write-Host "###################      remote conn           #####################"
+Write-Host "####################################################################"
+choco install --yes --no-progress --virus-check putty winscp `
+     mremoteng filezilla utorrent    
+
+Write-Host "####################################################################"
+Write-Host "###################      visual video audio    #####################"
+Write-Host "####################################################################"
+choco install --yes --no-progress --virus-check vlc screamer googleearth `
+
+
+Write-Host "####################################################################"
+Write-Host "###################      catalogues            #####################"
+Write-Host "####################################################################"
+
+choco install --yes --no-progress --virus-check calibre zotero keepass
 
 Write-Host "####################################################################"
 Write-Host "###################      editors               #####################"
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check foxitreader projectlibre `
-    notepadplusplus projectlibre
+    notepadplusplus projectlibre libreoffice-still
 
 Write-Host "####################################################################"
 Write-Host "###################      development           #####################"
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check vscode tortoisegit `
-    postman
+    postman PyCharm-community eclipse atom
+
+Write-Host "####################################################################"
+Write-Host "###################      compilers             #####################"
+Write-Host "####################################################################"
+
+choco install --yes --no-progress --virus-check jdk11 `
+    ruby golang python
 
 choco list --local-only
