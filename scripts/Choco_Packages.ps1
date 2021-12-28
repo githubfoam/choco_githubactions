@@ -52,7 +52,7 @@ Write-Host "####################################################################
 Write-Host "###################      development           #####################"
 Write-Host "####################################################################"
 
-choco install --yes --no-progress --virus-check vscode tortoisegit `
+choco install --yes --no-progress --virus-check vscode git tortoisegit `
     postman
 
 Write-Host "####################################################################"
