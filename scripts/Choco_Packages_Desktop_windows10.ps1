@@ -63,8 +63,8 @@ Write-Host "####################################################################
 Write-Host "###################      editors               #####################"
 Write-Host "####################################################################"
 
-choco install --yes --no-progress --virus-check foxitreader projectlibre `
-    notepadplusplus projectlibre libreoffice-still
+choco install --yes --no-progress --virus-check foxitreader libreoffice-still `
+    notepadplusplus 
 
 Write-Host "####################################################################"
 Write-Host "###################      development           #####################"
