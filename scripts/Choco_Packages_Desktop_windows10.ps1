@@ -71,7 +71,7 @@ Write-Host "###################      development           #####################
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check vscode git tortoisegit `
-    postman PyCharm-community eclipse atom
+    postman PyCharm-community eclipse atom python
 
 Write-Host "####################################################################"
 Write-Host "###################      compilers             #####################"
