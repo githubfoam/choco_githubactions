@@ -45,7 +45,7 @@ Write-Host "####################################################################
 Write-Host "###################      remote conn           #####################"
 Write-Host "####################################################################"
 choco install --yes --no-progress --virus-check putty winscp `
-     mremoteng filezilla deluge openvpn   
+     mremoteng filezilla deluge openvpn wget  
 
 Write-Host "####################################################################"
 Write-Host "###################      visual video audio    #####################"
