@@ -20,7 +20,7 @@ choco install --yes --no-progress --virus-check sysinternals `
 Write-Host "####################################################################"
 Write-Host "###################      net tools            #####################"
 Write-Host "####################################################################"
-choco install --yes --no-progress --virus-check wireshark
+choco install --yes --no-progress --virus-check wireshark winpcap
 
 Write-Host "####################################################################"
 Write-Host "###################      security              #####################"
@@ -45,12 +45,12 @@ Write-Host "####################################################################
 Write-Host "###################      remote conn           #####################"
 Write-Host "####################################################################"
 choco install --yes --no-progress --virus-check putty winscp `
-     mremoteng filezilla deluge openvpn   
+     mremoteng filezilla deluge openvpn wget  
 
 Write-Host "####################################################################"
 Write-Host "###################      visual video audio    #####################"
 Write-Host "####################################################################"
-choco install --yes --no-progress --virus-check vlc screamer googleearth `
+choco install --yes --no-progress --virus-check vlc screamer googleearth freemind `
 
 
 Write-Host "####################################################################"
@@ -63,15 +63,15 @@ Write-Host "####################################################################
 Write-Host "###################      editors               #####################"
 Write-Host "####################################################################"
 
-choco install --yes --no-progress --virus-check foxitreader projectlibre `
-    notepadplusplus projectlibre libreoffice-still
+choco install --yes --no-progress --virus-check foxitreader libreoffice-still `
+    notepadplusplus 
 
 Write-Host "####################################################################"
 Write-Host "###################      development           #####################"
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check vscode git tortoisegit `
-    postman PyCharm-community eclipse atom
+    postman PyCharm-community eclipse atom python
 
 Write-Host "####################################################################"
 Write-Host "###################      compilers             #####################"
