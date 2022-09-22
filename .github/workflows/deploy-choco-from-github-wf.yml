@@ -40,9 +40,14 @@ jobs:
         choco upgrade chocolatey
         choco list --local-only
       shell: pwsh             
-    - name: "Install chocolatey packages from github - pwsh script" 
+    - name: "Install chocolatey packages from github - pwsh script windows 10" 
       run: |
         iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/githubfoam/choco_githubactions/main/scripts/Choco_Packages_Desktop_windows10.ps1'))
+        choco list --local-only
+      shell: pwsh 
+    - name: "Install chocolatey packages from github - pwsh script windows 11" 
+      run: |
+        iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/githubfoam/choco_githubactions/main/scripts/Choco_Packages_Desktop_windows11.ps1'))
         choco list --local-only
       shell: pwsh 
 
