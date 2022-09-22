@@ -50,7 +50,8 @@ choco install --yes --no-progress --virus-check putty winscp `
 Write-Host "####################################################################"
 Write-Host "###################      visual video audio    #####################"
 Write-Host "####################################################################"
-choco install --yes --no-progress --virus-check vlc screamer googleearth `
+choco install --yes --no-progress --virus-check vlc screamer `
+    googleearth icloud
 
 
 Write-Host "####################################################################"
