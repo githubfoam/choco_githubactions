@@ -51,7 +51,7 @@ Write-Host "####################################################################
 Write-Host "###################      visual video audio    #####################"
 Write-Host "####################################################################"
 choco install --yes --no-progress --virus-check vlc screamer `
-    googleearth icloud
+    googleearth icloud itunes
 
 
 Write-Host "####################################################################"
