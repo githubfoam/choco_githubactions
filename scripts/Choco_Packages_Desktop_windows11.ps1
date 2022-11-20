@@ -65,7 +65,7 @@ Write-Host "###################      editors               #####################
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check foxitreader projectlibre `
-    notepadplusplus projectlibre libreoffice-still
+    notepadplusplus libreoffice-still
 
 Write-Host "####################################################################"
 Write-Host "###################      development           #####################"
