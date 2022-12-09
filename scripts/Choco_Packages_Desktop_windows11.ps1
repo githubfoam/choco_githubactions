@@ -20,7 +20,7 @@ choco install --yes --no-progress --virus-check sysinternals `
 Write-Host "####################################################################"
 Write-Host "###################      net tools            #####################"
 Write-Host "####################################################################"
-choco install --yes --no-progress --virus-check wireshark
+choco install --yes --no-progress --virus-check wireshark network-miner
 
 Write-Host "####################################################################"
 Write-Host "###################      security              #####################"
