@@ -15,7 +15,7 @@ Write-Host "####################################################################
 choco install --yes --no-progress --virus-check sysinternals `
     psscriptanalyzer osquery ChocolateyGUI packer `
     terraform vagrant virtualbox  vmware-workstation-player `
-    vmware-powercli-psmodule docker-desktop
+    vmware-powercli-psmodule docker-desktop rvtools
 
 Write-Host "####################################################################"
 Write-Host "###################      net tools            #####################"
