@@ -20,12 +20,12 @@ choco install --yes --no-progress --virus-check sysinternals `
 Write-Host "####################################################################"
 Write-Host "###################      net tools            #####################"
 Write-Host "####################################################################"
-choco install --yes --no-progress --virus-check wireshark network-miner
+choco install --yes --no-progress --virus-check wireshark network-miner  
 
 Write-Host "####################################################################"
 Write-Host "###################      security              #####################"
 Write-Host "####################################################################"
-choco install --yes --no-progress --virus-check zap burp-suite-free-edition
+choco install --yes --no-progress --virus-check zap burp-suite-free-edition fiddler
 
 Write-Host "####################################################################"
 Write-Host "###################      browsers              #####################"
@@ -72,7 +72,7 @@ Write-Host "###################      development           #####################
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check vscode git tortoisegit `
-    postman PyCharm-community eclipse atom
+    postman PyCharm-community eclipse atom anaconda3 miniconda3
 
 Write-Host "####################################################################"
 Write-Host "###################      compilers             #####################"
