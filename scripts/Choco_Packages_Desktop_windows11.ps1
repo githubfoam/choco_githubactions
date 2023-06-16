@@ -39,7 +39,7 @@ Write-Host "###################      tools                 #####################
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check 7zip etcher  `
-    rufus treesizefree skype  virtualclonedrive
+    rufus treesizefree virtualclonedrive
 
 Write-Host "####################################################################"
 Write-Host "###################      remote conn           #####################"
