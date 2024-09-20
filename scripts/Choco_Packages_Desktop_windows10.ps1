@@ -57,7 +57,7 @@ Write-Host "####################################################################
 Write-Host "###################      catalogues            #####################"
 Write-Host "####################################################################"
 
-choco install --yes --no-progress --virus-check calibre zotero keepass
+choco install --yes --no-progress --virus-check calibre zotero keepass mendeley
 
 Write-Host "####################################################################"
 Write-Host "###################      editors               #####################"
