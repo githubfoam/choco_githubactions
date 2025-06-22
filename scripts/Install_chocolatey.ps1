@@ -12,4 +12,4 @@ Get-ExecutionPolicy
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) 
 choco 
 choco upgrade chocolatey
-choco list --local-only
+choco list
