@@ -14,44 +14,44 @@ Write-Host "###################      system tools          #####################
 Write-Host "####################################################################"
 choco install --yes --no-progress --virus-check sysinternals `
     psscriptanalyzer osquery ChocolateyGUI packer `
-    terraform vagrant virtualbox  vmware-workstation-player `
-    vmware-powercli-psmodule docker-desktop
-
+    terraform vagrant virtualbox  vmware-workstation-player 
+    
 Write-Host "####################################################################"
 Write-Host "###################      net tools            #####################"
 Write-Host "####################################################################"
-choco install --yes --no-progress --virus-check wireshark winpcap
+choco install --yes --no-progress --virus-check wireshark network-miner angryip advanced-ip-scanner 
 
 Write-Host "####################################################################"
 Write-Host "###################      security              #####################"
 Write-Host "####################################################################"
-choco install --yes --no-progress --virus-check zap burp-suite-free-edition
+choco install --yes --no-progress --virus-check zap burp-suite-free-edition fiddler
 
 Write-Host "####################################################################"
 Write-Host "###################      browsers              #####################"
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check googlechrome firefox `
-    safari opera tor-browser
+    safari opera tor-browser thunderbird  
+  
     
 Write-Host "####################################################################"
 Write-Host "###################      tools                 #####################"
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check 7zip etcher  `
-    rufus treesizefree skype  virtualclonedrive thunderbird
+    rufus treesizefree  virtualclonedrive 
 
 Write-Host "####################################################################"
 Write-Host "###################      remote conn           #####################"
 Write-Host "####################################################################"
 choco install --yes --no-progress --virus-check putty winscp `
-     mremoteng filezilla deluge openvpn wget  
+     mremoteng filezilla deluge utorrent openvpn       
 
 Write-Host "####################################################################"
 Write-Host "###################      visual video audio    #####################"
 Write-Host "####################################################################"
-choco install --yes --no-progress --virus-check vlc screamer googleearth freemind `
-
+choco install --yes --no-progress --virus-check vlc screamer `
+    googleearth icloud itunes
 
 Write-Host "####################################################################"
 Write-Host "###################      catalogues            #####################"
@@ -63,15 +63,15 @@ Write-Host "####################################################################
 Write-Host "###################      editors               #####################"
 Write-Host "####################################################################"
 
-choco install --yes --no-progress --virus-check foxitreader libreoffice-still `
-    notepadplusplus 
+choco install --yes --no-progress --virus-check foxitreader `
+    notepadplusplus libreoffice-still
 
 Write-Host "####################################################################"
 Write-Host "###################      development           #####################"
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check vscode git tortoisegit `
-    postman PyCharm-community eclipse atom python
+    postman PyCharm-community eclipse atom anaconda3 miniconda3
 
 Write-Host "####################################################################"
 Write-Host "###################      compilers             #####################"
@@ -79,6 +79,9 @@ Write-Host "####################################################################
 
 choco install --yes --no-progress --virus-check jdk11 `
     ruby golang python
+choco install --yes --no-progress --virus-check jdk11 `
+    ruby golang python
+    
 #Chocolatey v2.3.0
 #Invalid argument --local-only. This argument has been removed from the list command and cannot be used.
 #choco list --local-only
