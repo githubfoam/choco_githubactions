@@ -14,8 +14,7 @@ Write-Host "###################      system tools          #####################
 Write-Host "####################################################################"
 choco install --yes --no-progress --virus-check sysinternals `
     psscriptanalyzer osquery ChocolateyGUI packer `
-    terraform vagrant virtualbox  vmware-workstation-player `
-    vmware-powercli-psmodule docker-desktop rvtools
+    terraform vagrant virtualbox  vmware-workstation-player 
 
 Write-Host "####################################################################"
 Write-Host "###################      net tools            #####################"
@@ -58,7 +57,7 @@ Write-Host "####################################################################
 Write-Host "###################      catalogues            #####################"
 Write-Host "####################################################################"
 
-choco install --yes --no-progress --virus-check calibre zotero keepass
+choco install --yes --no-progress --virus-check calibre zotero keepass mendeley
 
 Write-Host "####################################################################"
 Write-Host "###################      editors               #####################"
@@ -72,7 +71,7 @@ Write-Host "###################      development           #####################
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check vscode git tortoisegit `
-    postman PyCharm-community eclipse atom anaconda3 miniconda3
+    postman PyCharm-community eclipse atom anaconda3 miniconda3    
 
 Write-Host "####################################################################"
 Write-Host "###################      compilers             #####################"
@@ -81,4 +80,6 @@ Write-Host "####################################################################
 choco install --yes --no-progress --virus-check jdk11 `
     ruby golang python
 
-choco list --local-only
+#Chocolatey v2.3.0
+#Invalid argument --local-only. This argument has been removed from the list command and cannot be used.
+#choco list --local-only
