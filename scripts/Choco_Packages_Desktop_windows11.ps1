@@ -78,7 +78,7 @@ Write-Host "###################      compilers             #####################
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check jdk11 `
-    ruby golang python
+    jre8 ruby golang python
 
 #Chocolatey v2.3.0
 #Invalid argument --local-only. This argument has been removed from the list command and cannot be used.
