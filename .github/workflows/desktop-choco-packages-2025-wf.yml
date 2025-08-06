@@ -1,5 +1,5 @@
 
-name: "2022 desktop choco packages CI workflow"
+name: "2025 desktop choco packages CI workflow"
 
 on:
   push:
@@ -11,9 +11,9 @@ on:
 
 jobs:
 
-  windows-2022-pwsh-choco: 
-    name: "2022 choco packages"  
-    runs-on: windows-2022
+  windows-2025-pwsh-choco: 
+    name: "2025 choco packages"  
+    runs-on: windows-2025
     steps:
     - name: Checkout
       uses: actions/checkout@v1
