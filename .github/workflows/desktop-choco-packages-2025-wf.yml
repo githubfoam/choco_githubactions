@@ -45,8 +45,17 @@ jobs:
     - name: "look for unusual services"
       run: net start                       
     - name: "query unusual services"
-      run: sc query        
+      run: sc query  
+      
     - name: "Choco packages - pwsh script" 
       run: .\scripts\Choco_Packages_Desktop_windows10.ps1
-      shell: pwsh             
+      shell: pwsh
+    - name: "list installed choco packages"
+      run: choco list
+      shell: pwsh
+  
+
+    
+
+      
  
