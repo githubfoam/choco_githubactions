@@ -13,26 +13,37 @@ jobs:
 
   windows-2022-pwsh-choco: 
     name: "2022 choco packages"  
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
     - name: Checkout
       uses: actions/checkout@v1
+
     - name: "check if server is virtual"
       run: Systeminfo | findstr /i model   
+
     - name: "check the PROCESSOR_ARCHITECTURE environment variable.64-bit systems will say AMD64 and 32-bit systems should say x86"
-      run: wmic OS get OSArchitecture     
+      run: Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object OSArchitecture
+      shell: pwsh
+
     - name: "osfingerprinting"
       run: systeminfo | more  
+
     - name: "display all processes, executable path"
-      run: wmic process list full         
+      run: Get-Process | Select-Object ProcessName, Path
+      shell: pwsh     
+
     - name: "list of running services"
       run: tasklist         
+
     - name: "list of all processes along with their corresponding PID, and services that are tied to them"
       run: tasklist /svc  
+
     - name: "look for unusual services"
       run: net start                       
+
     - name: "query unusual services"
       run: sc query        
+
     - name: "Choco packages - pwsh script" 
       run: .\scripts\Choco_Packages.ps1
       shell: pwsh             
