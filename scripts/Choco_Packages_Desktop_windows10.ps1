@@ -131,7 +131,7 @@ $packageGroups = @{
                           'treesizefree', 'virtualclonedrive')
     
     "Remote Access"    = @('putty', 'winscp', 'mremoteng', 
-                          'filezilla', 'deluge', 'utorrent', 'openvpn')
+                          'filezilla', 'deluge', 'openvpn')
     
     "Media"            = @('vlc', 'screamer', 'googleearth', 
                           'icloud', 'itunes')
