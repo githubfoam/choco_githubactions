@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 $VerbosePreference = "Continue"
 Write-Output "Verbose logging enabled: $VerbosePreference"
 
-# Function to install packages with error handling
+# Function to install packages with error handling and checksum workaround
 function Install-ChocoPackages {
     param(
         [string]$Category,
@@ -16,7 +16,16 @@ function Install-ChocoPackages {
     foreach ($package in $Packages) {
         try {
             Write-Host "Installing $package..." -ForegroundColor Cyan
-            choco install $package --yes --no-progress --acceptlicense --limitoutput
+            
+            # Special handling for sysinternals package
+            if ($package -eq "sysinternals") {
+                choco install $package --yes --no-progress --acceptlicense --limitoutput --ignore-checksums
+                Write-Host "WARNING: Installed sysinternals with checksums ignored" -ForegroundColor Yellow
+            }
+            else {
+                choco install $package --yes --no-progress --acceptlicense --limitoutput
+            }
+            
             if ($LASTEXITCODE -ne 0) {
                 throw "Chocolatey installation failed for $package (Exit code: $LASTEXITCODE)"
             }
