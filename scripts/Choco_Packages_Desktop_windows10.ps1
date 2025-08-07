@@ -2,7 +2,10 @@ $ErrorActionPreference = "Stop"
 $VerbosePreference = "Continue"
 Write-Output "Verbose logging enabled: $VerbosePreference"
 
-# Function to install packages with error handling and checksum workaround
+# Define packages that need checksum bypass (temporary workaround)
+$ignoreChecksumPackages = @('sysinternals', 'network-miner')
+
+# Function to install packages with error handling
 function Install-ChocoPackages {
     param(
         [string]$Category,
@@ -17,15 +20,15 @@ function Install-ChocoPackages {
         try {
             Write-Host "Installing $package..." -ForegroundColor Cyan
             
-            # Special handling for sysinternals package
-            if ($package -eq "sysinternals") {
-                choco install $package --yes --no-progress --acceptlicense --limitoutput --ignore-checksums
-                Write-Host "WARNING: Installed sysinternals with checksums ignored" -ForegroundColor Yellow
+            # Check if package needs checksum bypass
+            $installCommand = "choco install $package --yes --no-progress --acceptlicense --limitoutput"
+            if ($ignoreChecksumPackages -contains $package) {
+                $installCommand += " --ignore-checksums"
+                Write-Host "WARNING: Installing $package with checksums ignored" -ForegroundColor Yellow
             }
-            else {
-                choco install $package --yes --no-progress --acceptlicense --limitoutput
-            }
-            
+
+            # Execute installation
+            Invoke-Expression $installCommand
             if ($LASTEXITCODE -ne 0) {
                 throw "Chocolatey installation failed for $package (Exit code: $LASTEXITCODE)"
             }
@@ -87,7 +90,7 @@ $packageGroups = @{
     "Development"      = @('vscode', 'git', 'tortoisegit', 'postman', 
                           'pycharm-community', 'eclipse', 'anaconda3', 'miniconda3')
     
-    "Compilers"        = @('jre8', 'ruby', 'golang', 'python')
+    "Compilers"        = @('jdk11', 'jre8', 'ruby', 'golang', 'python')
 }
 
 # Install all package groups
@@ -103,7 +106,11 @@ Write-Host "####################################################################
 try {
     Write-Host "Listing installed packages..." -ForegroundColor Cyan
     choco list --local-only --limitoutput
-    if ($LASTEXITCODE -ne 0) { Write-Host "Package listing completed with warnings" -ForegroundColor Yellow }
+    if ($LASTEXITCODE -ne 0) { 
+        Write-Host "Package listing completed with warnings" -ForegroundColor Yellow
+        Write-Host "Full package list:"
+        choco list
+    }
 }
 catch {
     Write-Host "Package listing failed: $($_.Exception.Message)" -ForegroundColor Red
