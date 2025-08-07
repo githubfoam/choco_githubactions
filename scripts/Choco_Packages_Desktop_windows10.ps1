@@ -128,7 +128,7 @@ $packageGroups = @{
                           'opera', 'tor-browser', 'thunderbird')
     
     "Utilities"        = @('7zip', 'etcher', 'rufus', 
-                          'treesizefree', 'virtualclonedrive')
+                          'virtualclonedrive')
     
     "Remote Access"    = @('putty', 'winscp', 'mremoteng', 
                           'filezilla', 'deluge', 'openvpn')
