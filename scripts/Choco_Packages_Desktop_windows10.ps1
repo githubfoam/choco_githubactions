@@ -5,6 +5,9 @@ Write-Output "Verbose logging enabled: $VerbosePreference"
 # Define packages that need checksum bypass (temporary workaround)
 $ignoreChecksumPackages = @('sysinternals', 'network-miner')
 
+# Define packages that may require reboot (exit code 3010 is success but needs reboot)
+$rebootExpectedPackages = @('vagrant', 'virtualbox', 'vmware-workstation-player')
+
 # Function to install packages with error handling
 function Install-ChocoPackages {
     param(
@@ -21,25 +24,39 @@ function Install-ChocoPackages {
             Write-Host "Installing $package..." -ForegroundColor Cyan
             
             # Check if package needs checksum bypass
-            $installCommand = "choco install $package --yes --no-progress --acceptlicense --limitoutput"
+            $installArgs = "--yes --no-progress --acceptlicense --limitoutput"
             if ($ignoreChecksumPackages -contains $package) {
-                $installCommand += " --ignore-checksums"
+                $installArgs += " --ignore-checksums"
                 Write-Host "WARNING: Installing $package with checksums ignored" -ForegroundColor Yellow
             }
 
             # Execute installation
-            Invoke-Expression $installCommand
-            if ($LASTEXITCODE -ne 0) {
-                throw "Chocolatey installation failed for $package (Exit code: $LASTEXITCODE)"
+            choco install $package $installArgs
+            $exitCode = $LASTEXITCODE
+
+            # Handle expected reboot requirements
+            if ($rebootExpectedPackages -contains $package -and $exitCode -eq 3010) {
+                Write-Host "SUCCESS: $package installed but requires reboot (Exit code: 3010)" -ForegroundColor Yellow
+                $global:rebootRequired = $true
             }
-            Write-Host "$package installed successfully" -ForegroundColor Green
+            # Handle standard success
+            elseif ($exitCode -eq 0) {
+                Write-Host "$package installed successfully" -ForegroundColor Green
+            }
+            # Handle failure
+            else {
+                throw "Chocolatey installation failed for $package (Exit code: $exitCode)"
+            }
         }
         catch {
             Write-Host "ERROR: $_" -ForegroundColor Red
-            exit $LASTEXITCODE
+            exit $exitCode
         }
     }
 }
+
+# Initialize reboot flag
+$global:rebootRequired = $false
 
 # Upgrade Chocolatey first
 try {
@@ -109,11 +126,21 @@ try {
     if ($LASTEXITCODE -ne 0) { 
         Write-Host "Package listing completed with warnings" -ForegroundColor Yellow
         Write-Host "Full package list:"
-        choco list
+        choco list --local-only
     }
 }
 catch {
     Write-Host "Package listing failed: $($_.Exception.Message)" -ForegroundColor Red
+}
+
+# Handle reboot notification
+if ($global:rebootRequired) {
+    Write-Host "`nWARNING: Some packages require a system reboot to function properly!" -ForegroundColor Yellow
+    Write-Host "Packages requiring reboot: $($rebootExpectedPackages -join ', ')" -ForegroundColor Yellow
+    Write-Host "CI environment note: Automatic reboot not performed. Manual reboot may be required." -ForegroundColor Yellow
+}
+else {
+    Write-Host "`nAll packages installed successfully without reboot requirements!" -ForegroundColor Green
 }
 
 Write-Host "`nChocolatey installation completed!" -ForegroundColor Green
