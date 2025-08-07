@@ -3,7 +3,7 @@ $VerbosePreference = "Continue"
 Write-Output "Verbose logging enabled: $VerbosePreference"
 
 # Define packages that need checksum bypass (temporary workaround)
-$ignoreChecksumPackages = @('sysinternals', 'network-miner')
+$ignoreChecksumPackages = @('sysinternals', 'network-miner', 'googlechrome')
 
 # Define packages that may require reboot (exit code 3010 is success but needs reboot)
 $rebootExpectedPackages = @('vagrant', 'virtualbox', 'vmware-workstation-player')
