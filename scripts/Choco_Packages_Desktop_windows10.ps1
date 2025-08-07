@@ -87,7 +87,7 @@ $packageGroups = @{
     "Development"      = @('vscode', 'git', 'tortoisegit', 'postman', 
                           'pycharm-community', 'eclipse', 'anaconda3', 'miniconda3')
     
-    "Compilers"        = @('jdk11', 'jre8', 'ruby', 'golang', 'python')
+    "Compilers"        = @('jre8', 'ruby', 'golang', 'python')
 }
 
 # Install all package groups
