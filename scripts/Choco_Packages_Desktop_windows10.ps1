@@ -23,15 +23,23 @@ function Install-ChocoPackages {
         try {
             Write-Host "Installing $package..." -ForegroundColor Cyan
             
-            # Check if package needs checksum bypass
-            $installArgs = "--yes --no-progress --acceptlicense --limitoutput"
+            # Build argument array
+            $installArgs = @(
+                'install', $package,
+                '--yes',
+                '--no-progress',
+                '--accept-license',
+                '--limitoutput'
+            )
+            
+            # Add --ignore-checksums if needed
             if ($ignoreChecksumPackages -contains $package) {
-                $installArgs += " --ignore-checksums"
+                $installArgs += '--ignore-checksums'
                 Write-Host "WARNING: Installing $package with checksums ignored" -ForegroundColor Yellow
             }
 
             # Execute installation
-            choco install $package $installArgs
+            choco @installArgs
             $exitCode = $LASTEXITCODE
 
             # Handle expected reboot requirements
