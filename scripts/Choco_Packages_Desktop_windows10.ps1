@@ -1,6 +1,6 @@
 #--------------------------------------------------------------------------------------------------------
 # https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/set-psdebug?view=powershell-7.1
-Set-PSDebug -Trace 2 #turns script debugging features on and off, sets the trace level
+# Set-PSDebug -Trace 2 #turns script debugging features on and off, sets the trace level
 
 $VerbosePreference = "continue"
 Write-Output $VerbosePreference
@@ -77,8 +77,18 @@ Write-Host "####################################################################
 Write-Host "###################      compilers             #####################"
 Write-Host "####################################################################"
 
-choco install --yes --no-progress --virus-check jdk11 `
-    jre8 ruby golang python
+# choco install --yes --no-progress --virus-check jdk11 `
+#     jre8 ruby golang python
+
+$packages = @('jdk11', 'jre8', 'ruby', 'golang', 'python')
+foreach ($pkg in $packages) {
+    choco install --yes --no-progress --virus-check $pkg
+    if ($LASTEXITCODE -ne 0) { 
+        Write-Error "Failed to install $pkg. Exiting."
+        exit $LASTEXITCODE 
+    }
+}
+
 
 Write-Host "####################################################################"
 #Chocolatey v2.3.0
