@@ -8,6 +8,9 @@ $ignoreChecksumPackages = @('sysinternals', 'network-miner')
 # Define packages that may require reboot (exit code 3010 is success but needs reboot)
 $rebootExpectedPackages = @('vagrant', 'virtualbox', 'vmware-workstation-player')
 
+# Define packages that might have network issues
+$networkSensitivePackages = @('vmware-workstation-player', 'virtualbox', 'vagrant')
+
 # Function to install packages with error handling
 function Install-ChocoPackages {
     param(
@@ -38,9 +41,27 @@ function Install-ChocoPackages {
                 Write-Host "WARNING: Installing $package with checksums ignored" -ForegroundColor Yellow
             }
 
-            # Execute installation
-            choco @installArgs
-            $exitCode = $LASTEXITCODE
+            # Execute installation with retry for network-sensitive packages
+            $attempts = 1
+            $maxAttempts = if ($networkSensitivePackages -contains $package) { 3 } else { 1 }
+            
+            while ($true) {
+                try {
+                    choco @installArgs
+                    $exitCode = $LASTEXITCODE
+                    break
+                }
+                catch {
+                    if ($attempts -lt $maxAttempts) {
+                        $attempts++
+                        Write-Host "WARNING: Installation attempt $attempts/$maxAttempts for $package" -ForegroundColor Yellow
+                        Start-Sleep -Seconds (10 * $attempts)  # Exponential backoff
+                    }
+                    else {
+                        throw
+                    }
+                }
+            }
 
             # Handle expected reboot requirements
             if ($rebootExpectedPackages -contains $package -and $exitCode -eq 3010) {
@@ -58,13 +79,20 @@ function Install-ChocoPackages {
         }
         catch {
             Write-Host "ERROR: $_" -ForegroundColor Red
-            exit $exitCode
+            if ($networkSensitivePackages -contains $package) {
+                Write-Host "WARNING: This failure might be due to network issues. Continuing with other packages..." -ForegroundColor Yellow
+                $global:networkSensitiveFailures = $true
+            }
+            else {
+                exit $exitCode
+            }
         }
     }
 }
 
-# Initialize reboot flag
+# Initialize global flags
 $global:rebootRequired = $false
+$global:networkSensitiveFailures = $false
 
 # Upgrade Chocolatey first
 try {
@@ -147,8 +175,18 @@ if ($global:rebootRequired) {
     Write-Host "Packages requiring reboot: $($rebootExpectedPackages -join ', ')" -ForegroundColor Yellow
     Write-Host "CI environment note: Automatic reboot not performed. Manual reboot may be required." -ForegroundColor Yellow
 }
-else {
-    Write-Host "`nAll packages installed successfully without reboot requirements!" -ForegroundColor Green
+
+# Handle network-sensitive failures
+if ($global:networkSensitiveFailures) {
+    Write-Host "`nWARNING: Some network-sensitive packages failed to install!" -ForegroundColor Yellow
+    Write-Host "This might be due to temporary network issues or regional restrictions." -ForegroundColor Yellow
+    Write-Host "Consider running this workflow again later or using a different network environment." -ForegroundColor Yellow
+    Write-Host "Affected packages: $($networkSensitivePackages -join ', ')" -ForegroundColor Yellow
+}
+
+# Final success message
+if (-not $global:networkSensitiveFailures) {
+    Write-Host "`nAll packages installed successfully!" -ForegroundColor Green
 }
 
 Write-Host "`nChocolatey installation completed!" -ForegroundColor Green
