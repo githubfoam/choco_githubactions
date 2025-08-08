@@ -1,0 +1,27 @@
+name: "2025 desktop DSC packages CI workflow"
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '39 11 * * *'
+
+jobs:
+  windows-2025-pwsh-dsc:
+    name: "2025 DSC packages"
+    runs-on: windows-2025
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    
+    - name: "Apply DSC Configuration"
+      run: |
+        # Import the DSC resources if they are not already available
+        Install-Module -Name PSDscResources, cChoco -Force
+        
+        # Run the DSC configuration to generate the MOF file
+        .\scripts\DesktopPackages.ps1
+        
+        # Apply the DSC configuration
+        Start-DscConfiguration -Path .\DesktopPackages -Wait -Verbose
+      shell: pwsh
