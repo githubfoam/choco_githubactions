@@ -33,3 +33,24 @@ jobs:
         # This command will now find the 'DesktopPackages' directory
         Start-DscConfiguration -Path .\DesktopPackages -Wait -Verbose
       shell: powershell
+      
+    - name: Verify Installations
+      run: |
+        Write-Host "--- Verifying package installations ---"
+        
+        # Verify Git installation
+        Write-Host "Checking Git version..."
+        git --version
+        
+        # Verify 7-Zip installation
+        Write-Host "Checking 7-Zip is available..."
+        Get-Command 7z.exe
+        
+        # Verify Notepad++ installation
+        Write-Host "Checking Notepad++ is available..."
+        Get-Command notepad++.exe
+        
+        # Verify Google Chrome installation
+        Write-Host "Checking Google Chrome is available..."
+        Get-Command chrome.exe
+      shell: powershell
