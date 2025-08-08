@@ -7,7 +7,9 @@ Configuration DesktopPackages {
     Node 'localhost' {
         # A resource to ensure Chocolatey is installed
         cChocoInstaller InstallChocolatey {
-            Ensure = 'Present'
+            # Fix: Add the mandatory InstallDir property
+            InstallDir = 'C:\ProgramData\chocolatey'
+            Ensure     = 'Present'
         }
 
         # A resource to install multiple packages using cChoco
@@ -23,14 +25,5 @@ Configuration DesktopPackages {
             Name = @('googlechrome', 'firefox')
             Ensure = 'Present'
         }
-        
-        # Example of installing an MSI package directly
-        # You would need to provide the path to the MSI and the ProductId
-        # Package LibreOffice {
-        #    Name = 'libreoffice'
-        #    Path = 'C:\path\to\libreoffice.msi'
-        #    ProductId = 'PRODUCT-ID-GUID'
-        #    Ensure = 'Present'
-        # }
     }
 }
