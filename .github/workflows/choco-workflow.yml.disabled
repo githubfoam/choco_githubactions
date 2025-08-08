@@ -1,5 +1,5 @@
 
-name: "Chocolatey CI workflow"
+name: "Chocolatey CI latest Microsoft Windows Server workflow"
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 jobs:
 
   windows-latest-pwsh-choco:
-    name: "windows-latest Microsoft Windows Server 2019 Datacenter  choco packages"  
+    name: "windows-latest Microsoft Windows Server choco packages"  
     runs-on: windows-latest
     steps:
     - name: Checkout
