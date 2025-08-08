@@ -19,9 +19,12 @@ jobs:
         # Import the DSC resources if they are not already available
         Install-Module -Name PSDscResources, cChoco -Force
         
-        # Run the DSC configuration to generate the MOF file
+        # Run the DSC configuration to generate the MOF file.
+        # This assumes your script contains 'Configuration DesktopPackages'
+        # and will create a directory with that name.
         .\scripts\Apply_DSC_Desktop_Config.ps1
         
-        # Apply the DSC configuration
-        Start-DscConfiguration -Path .\Apply_DSC_Desktop_Config -Wait -Verbose
+        # Apply the DSC configuration by pointing to the newly created folder.
+        # The directory name is the name of the Configuration block, not the script name.
+        Start-DscConfiguration -Path .\DesktopPackages -Wait -Verbose
       shell: pwsh
