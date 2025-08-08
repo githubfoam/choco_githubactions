@@ -14,17 +14,19 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     
-    - name: "Apply DSC Configuration"
+    - name: Install DSC Modules
       run: |
-        # Import the DSC resources if they are not already available
         Install-Module -Name PSDscResources, cChoco -Force
-        
-        # Run the DSC configuration to generate the MOF file.
-        # This assumes your script contains 'Configuration DesktopPackages'
-        # and will create a directory with that name.
+      shell: pwsh
+      
+    - name: Compile DSC Configuration
+      run: |
+        # This command runs your script and creates the 'DesktopPackages' directory.
         .\scripts\Apply_DSC_Desktop_Config.ps1
-        
-        # Apply the DSC configuration by pointing to the newly created folder.
-        # The directory name is the name of the Configuration block, not the script name.
+      shell: pwsh
+      
+    - name: Apply DSC Configuration
+      run: |
+        # This command applies the compiled configuration from the 'DesktopPackages' directory.
         Start-DscConfiguration -Path .\DesktopPackages -Wait -Verbose
       shell: pwsh
