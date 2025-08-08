@@ -17,7 +17,7 @@ jobs:
     - name: Install DSC Modules
       run: |
         Install-Module -Name PSDscResources, cChoco -Force
-      shell: pwsh
+      shell: powershell
       
     - name: Compile DSC Configuration
       run: |
@@ -25,12 +25,11 @@ jobs:
         . .\scripts\Apply_DSC_Desktop_Config.ps1
         
         # Call the configuration function to compile the MOF file
-        # This is what creates the 'DesktopPackages' directory.
         DesktopPackages
-      shell: pwsh
+      shell: powershell
       
     - name: Apply DSC Configuration
       run: |
         # This command will now find the 'DesktopPackages' directory
         Start-DscConfiguration -Path .\DesktopPackages -Wait -Verbose
-      shell: pwsh
+      shell: powershell
