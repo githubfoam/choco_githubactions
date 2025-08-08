@@ -3,7 +3,7 @@ name: "2022 desktop choco packages CI workflow"
 
 on:
   push:
-    branches: [ main ]
+    branches: [ test ]
   schedule:
       - cron:  '39 11 * * *' ##execution of a task in the first minute of the month
 
