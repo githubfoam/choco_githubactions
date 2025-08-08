@@ -21,12 +21,16 @@ jobs:
       
     - name: Compile DSC Configuration
       run: |
-        # This command runs your script and creates the 'DesktopPackages' directory.
-        .\scripts\Apply_DSC_Desktop_Config.ps1
+        # Dot-source the DSC script to load the Configuration block
+        . .\scripts\Apply_DSC_Desktop_Config.ps1
+        
+        # Call the configuration function to compile the MOF file
+        # This is what creates the 'DesktopPackages' directory.
+        DesktopPackages
       shell: pwsh
       
     - name: Apply DSC Configuration
       run: |
-        # This command applies the compiled configuration from the 'DesktopPackages' directory.
+        # This command will now find the 'DesktopPackages' directory
         Start-DscConfiguration -Path .\DesktopPackages -Wait -Verbose
       shell: pwsh
