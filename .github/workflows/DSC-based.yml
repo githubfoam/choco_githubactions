@@ -23,5 +23,5 @@ jobs:
         .\scripts\DesktopPackages.ps1
         
         # Apply the DSC configuration
-        Start-DscConfiguration -Path .\DesktopPackages -Wait -Verbose
+        Start-DscConfiguration -Path .\Apply_DSC_Desktop_Config -Wait -Verbose
       shell: pwsh
