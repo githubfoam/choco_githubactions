@@ -20,7 +20,7 @@ jobs:
         Install-Module -Name PSDscResources, cChoco -Force
         
         # Run the DSC configuration to generate the MOF file
-        .\scripts\DesktopPackages.ps1
+        .\scripts\Apply_DSC_Desktop_Config.ps1
         
         # Apply the DSC configuration
         Start-DscConfiguration -Path .\Apply_DSC_Desktop_Config -Wait -Verbose
