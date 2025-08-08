@@ -6,10 +6,9 @@ Configuration DesktopPackages {
     # Define a node for the local machine
     Node 'localhost' {
         # A resource to ensure Chocolatey is installed
+        # The 'Ensure' property has been removed as it is not a valid member.
         cChocoInstaller InstallChocolatey {
-            # Fix: Add the mandatory InstallDir property
             InstallDir = 'C:\ProgramData\chocolatey'
-            Ensure     = 'Present'
         }
 
         # A resource to install multiple packages using cChoco
