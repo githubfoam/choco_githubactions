@@ -2,7 +2,7 @@ name: "2025 desktop DSC packages CI workflow"
 
 on:
   push:
-    branches: [ main ]
+    branches: [ test ]
   schedule:
     - cron: '39 11 * * *'
 
