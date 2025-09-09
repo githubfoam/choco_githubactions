@@ -130,7 +130,7 @@ $packageGroups = @{
     "Utilities"        = @('7zip', 'etcher', 'rufus', 
                           'virtualclonedrive')
     
-    "Remote Access"    = @('putty', 'winscp', 'mremoteng', 
+    "Remote Access"    = @('winscp', 'mremoteng', 
                           'filezilla', 'deluge', 'openvpn')
     
     "Media"            = @('vlc', 'screamer', 'googleearth', 
