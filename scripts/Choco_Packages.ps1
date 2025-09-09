@@ -39,7 +39,7 @@ Write-Host "###################      tools                 #####################
 Write-Host "####################################################################"
 
 choco install --yes --no-progress --virus-check 7zip etcher keepass `
-    foxitreader putty rufus vlc winscp mremoteng treesizefree screamer
+    foxitreader rufus vlc winscp mremoteng treesizefree screamer
 
 Write-Host "####################################################################"
 Write-Host "###################      editors               #####################"
