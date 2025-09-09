@@ -43,7 +43,7 @@ choco install --yes --no-progress --virus-check 7zip etcher  `
 Write-Host "####################################################################"
 Write-Host "###################      remote conn           #####################"
 Write-Host "####################################################################"
-choco install --yes --no-progress --virus-check putty winscp `
+choco install --yes --no-progress --virus-check winscp `
      mremoteng filezilla deluge utorrent openvpn   
 
 Write-Host "####################################################################"
